@@ -15,6 +15,10 @@ export const Container = styled.div`
   padding: 60px 20px 0 20px;
 
   background-color: ${({ theme }) => theme.backgroundColor};
+
+  @media (max-width: 600px) {
+    padding-top: 40px;
+  }
 `;
 
 export const SwitchContainer = styled.div`
