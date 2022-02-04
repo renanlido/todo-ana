@@ -1,6 +1,17 @@
-<p align="center" class="logo">
-  <img src="/src/assets/institutional/logoBrics.svg" width="200" title="Observatório dos Sistemas Nacionais de Proteção Socioambiental da Região Amazônica">
-</p>
+<style type="text/css">
+    img[alt='tela1'] {
+        height: 350px;
+    }
+
+    img[alt='tela2'] {
+        margin-left: 30px;
+        height: 350px;
+    }
+</style>
+
+<H1 align="center" class="logo">
+  O todo da Ana!
+</H1>
 
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&logo=REACT"/>
@@ -13,19 +24,29 @@
 
   <img src="https://img.shields.io/static/v1?label=typescript&message=code&color=blue&logo=typescript"/>
 
-  <img src="https://img.shields.io/static/v1?label=release&message=v1.0.3&color=green"/>
+  <img src="https://img.shields.io/static/v1?label=release&message=v1.0.0&color=green"/>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8f35cb77-2019-45b2-83d2-64ed2803c90a/deploy-status)](https://app.netlify.com/sites/anas-todo/deploys)
+
 </div>
 
-# <p align="center" class="title">Projeto PanAmazônia</p>
+# <p align="center" class="title">O todo da ana</p>
 
-#### 🧪 Tecnologias
+![tela1](./src/assets/images/tela.png)
+![tela2](./src/assets/images/tela2.png)
 
-##### - Este projeto foi desenvolvido com as seguintes tecnologias:
+</br>
+
+### 🧪 Tecnologias
+
+</br>
+
+#### - Este projeto foi desenvolvido com as seguintes tecnologias:
 
 - React
 - TypeScript
 
-##### - Esse projeto algumas padronizações:
+#### - Esse projeto algumas padronizações:
 
 - Commitizen (Padrões de commit)
 - Git Commit Msg Linter (Validação de commit)
@@ -33,9 +54,14 @@
 - Prettier (Formatador de código)
 - EditorConfig (Padrão de visualização editor 'VSCODE')
 
-#### 🚀 Como executar
+</br>
 
-Clone o projeto do repositório no [TFS](http://tfs-ng.marlin.net:8080/tfs/Marlin/Prototipos/_git/PanAmazoniaTimeline).
+### 🚀 Como executar
+
+</br>
+Clone o projeto!
+
+</br>
 
 Para iniciá-lo, siga os passos abaixo:
 
@@ -47,75 +73,18 @@ Para iniciá-lo, siga os passos abaixo:
 > yarn start ou npm run start
 ```
 
-#### 📋 Commit
+</br>
 
-Nós adotamos o padrão de commits [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) através da cli [Commitizen](https://github.com/commitizen/cz-cli) e são validados pela lib [git-commit-msg-linter](https://github.com/legend80s/commit-msg-linter#readme) que reportará um erro se o commit estiver fora do padrão.
+### 📋 O que é isso que você está vendo?
 
-Todos os commits devem seguir um formato específico:
+</br>
 
-```
-  tipoDoCommit: mensagem do commit
-```
-
-Alguns tipos de commits possíveis estão nesta [documentação](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) ou [nesta](https://github.com/legend80s/commit-msg-linter#readme).
-
-##### - Como fazer um commit
-
-Você pode fazer um commit seguindo a forma normal do git `git commit -m "feat: mensagem do meu commit"`, desde que se siga o padrão estipulado, tudo funcionará corretamente.
-
-ou
-
-Caso queira instalar a cli [Commitizen](https://github.com/commitizen/cz-cli) utilize o comando `npm install -g commitizen` e após isso terá acesso ao comando `cz` no terminal para efetuar um commit padronizado.
-
-Alternativamete, caso não queira instalar a cli globalmente, utilize `npx cz`.
-
-#### 🏗️ Build
-
-Este projeto está hospedado em desenvolvimento no servidor [GRM](grminternet.com.br/hmg/panamazonia/) e em produção no servidor [BRICS](https://bricspolicycenter.org/observamazonia/). As credenciais de acesso do servidor de produção estão no [WIKI](http://tfs-ng.marlin.net:8080/tfs/Marlin/Prototipos/_wiki/wikis/Prototipos.wiki?wikiVersion=GBwikiMaster&_a=edit&pagePath=%2FPanAmazônia%20Anotações) do projeto no TFS.
-
-##### - Comando de build manual
-
-```
-  #Build Development
-  yarn build:dev ou npm run build:dev
-
-  #Build Production
-  yarn build:prod ou npm run build:prod
-
-```
-
-Uma vez feito o build, basta clonar os arquivos para o ftp de desenvolvimento ou de produção.
-
-### 🤓 Observações
-
-Em caso de problemas com o linter, instale as extensões `eslint` e `prettier` que estão disponíveis nas extensões do VSCode.
-
-##### - Configurando ESLINT
-
-```
-# Abrir configurações do VSCODE
-CTRL + Shift + P
-
-# Na caixa de diálogo copie e cole o comando abaixo
->preferences: Open Settings (JSON)
-
-# Copie o comando abaixo e cole na tela que abrirá
-
- "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.fixAll.eslint": true
-    }
-
-# Salve e feche o arquivo.
-
-```
+Este não é só um projeto mas a concretização de um sonho de anos. Este é um projeto que foi feito para um cliente, e ele consiste em um TODO-List, vem simples, mas com muita elegancia!
 
 ### Demo:
 
-Siga o link -> [PanAmazônia](https://grminternet.com.br/hmg/panamazonia/).
+Siga o link -> [ana's todo](https://anas-todo.netlify.app).
 
 <br>
 
-###### Desenvolvido por equipe:
-
-<img src="https://medcentersauderio.com.br/images/LogoMarlin.png" width="200" title="Observatório dos Sistemas Nacionais de Proteção Socioambiental da Região Amazônica">
+## Obrigado por vir!! 🎉
