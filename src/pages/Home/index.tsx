@@ -22,11 +22,13 @@ import {
   HeaderWrapper,
   HeaderTitle,
   HeaderSubtitle,
+  NoTasks,
   Hr,
   ContainerList,
   ContentList,
   ListText,
-  Input
+  Input,
+  NoTasksText
 } from './styles';
 import { useToggleTheme } from '../../hooks';
 
@@ -108,18 +110,12 @@ const Home: React.FC = () => {
           <Hr />
 
           {tasks.length === 0 ? (
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center'
-              }}
-            >
-              <HeaderTitle style={{ lineHeight: 1.5 }}>
+            <NoTasks>
+              <NoTasksText style={{ lineHeight: 1.5 }}>
                 Ops, não temos tarefas para hoje... Adicione uma!
-              </HeaderTitle>
+              </NoTasksText>
               <img src={emoji} alt="emoji" width={100} />
-            </div>
+            </NoTasks>
           ) : (
             <ContainerList>
               {tasks.map(task => (

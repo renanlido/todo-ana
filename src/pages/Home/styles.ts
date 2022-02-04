@@ -102,6 +102,35 @@ export const HeaderTitle = styled.h2`
   line-height: 25px;
   margin-bottom: 6px;
   text-align: start;
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
+`;
+
+export const NoTasks = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    img {
+      width: 70px;
+    }
+  }
+`;
+
+export const NoTasksText = styled.h2`
+  font-size: ${({ theme: { texts } }) => texts.cardTitle.fontSize};
+  font-weight: ${({ theme: { texts } }) => texts.cardTitle.fontWeight};
+  color: ${({ theme: { texts } }) => texts.cardTitle.color};
+  line-height: 25px;
+  margin-bottom: 6px;
+  text-align: start;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 export const HeaderSubtitle = styled.h3`
