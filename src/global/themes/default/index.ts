@@ -3,7 +3,7 @@ import { DefaultThemeProps } from './IDefaultThemeProps';
 const colors = {
   primary: '#383F50',
   lightGray: '#B2B7BB',
-  softGray: '#E5E5E5',
+  softGray: 'rgba(244, 246, 250, 0.3)',
   black: '#23262C',
   white: '#F4F6FA',
   forBlack: '#2E3239',
