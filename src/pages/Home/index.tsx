@@ -39,6 +39,7 @@ const Home: React.FC = () => {
   const { handleToggleTheme, toggleTheme } = useToggleTheme();
   const { register, handleSubmit } = useForm<TaskProps>();
   const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [isChecked, setIsChecked] = useState(false);
 
   const onChangeSwitch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checkboxState = event.target.checked;
@@ -46,8 +47,19 @@ const Home: React.FC = () => {
     handleToggleTheme(checkboxState);
   };
 
+  const onChangeCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const checkboxState = event.target.checked;
+
+    setIsChecked(checkboxState);
+  };
+
   const onSubmit = (data: TaskProps) => {
-    setTasks([...tasks, data]);
+    const dataValue = {
+      value: data.value,
+      checked: isChecked
+    };
+
+    setTasks([...tasks, dataValue]);
   };
 
   const handleDelete = (data: TaskProps) => {
@@ -126,9 +138,9 @@ const Home: React.FC = () => {
                         toggleTheme.title === 'light' ? 'purple' : 'blackAlpha'
                       }
                       checked={task.checked}
-                      {...register('checked')}
+                      onChange={onChangeCheckbox}
                     />
-                    <ListText>{task.value}</ListText>
+                    <ListText isChecked={isChecked}>{task.value}</ListText>
                   </div>
                   <IconButton
                     aria-label="Excluir"

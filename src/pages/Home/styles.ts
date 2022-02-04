@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface TextProps {
+  isChecked: boolean;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +12,7 @@ export const Container = styled.div`
 
   align-items: center;
   padding-top: 60px;
+  padding: 60px 20px 0 20px;
 
   background-color: ${({ theme }) => theme.backgroundColor};
 `;
@@ -48,6 +53,10 @@ export const Title = styled.h1`
   font-size: ${({ theme }) => theme.texts.aplicationTitle.fontSize};
   color: ${({ theme }) => theme.texts.aplicationTitle.color};
   margin-bottom: 24px;
+
+  @media (max-width: 600px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Card = styled.form`
@@ -124,10 +133,16 @@ export const ContentList = styled.li`
   gap: 12px;
 `;
 
-export const ListText = styled.p`
+export const ListText = styled.p<TextProps>`
   color: ${({ theme: { texts } }) => texts.taskText.colors.active};
   font-size: ${({ theme: { texts } }) => texts.taskText.fontSize};
   font-weight: ${({ theme: { texts } }) => texts.taskText.fontWeight};
+
+  ${({ isChecked }) =>
+    isChecked &&
+    css`
+      text-decoration: line-through;
+    `}
 `;
 
 export const Input = styled.input`
