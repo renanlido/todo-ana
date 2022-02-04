@@ -1,14 +1,3 @@
-<style type="text/css">
-    img[alt='tela1'] {
-        height: 350px;
-    }
-
-    img[alt='tela2'] {
-        margin-left: 30px;
-        height: 350px;
-    }
-</style>
-
 <H1 align="center" class="logo">
   O todo da Ana!
 </H1>
