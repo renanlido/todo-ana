@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { v4 as uuid } from 'uuid';
 
 import { Checkbox, Button, IconButton, Switch } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
+import { FaTrash } from 'react-icons/fa';
 import avatar from '../../assets/avatar/avataaars.svg';
 import moon from '../../assets/icons/moon-svgrepo-com.svg';
 import sun from '../../assets/icons/sun-svgrepo-com.svg';
@@ -33,15 +34,20 @@ import {
 import { useToggleTheme } from '../../hooks';
 
 type TaskProps = {
+  id?: string;
   value: string;
-  checked: boolean;
+  checked?: boolean;
+};
+
+type TaskTypes = {
+  input: string;
+  checkbox: boolean;
 };
 
 const Home: React.FC = () => {
   const { handleToggleTheme, toggleTheme } = useToggleTheme();
-  const { register, handleSubmit } = useForm<TaskProps>();
+  const { register, handleSubmit } = useForm<TaskTypes>();
   const [tasks, setTasks] = useState<TaskProps[]>([]);
-  const [isChecked, setIsChecked] = useState(false);
 
   const onChangeSwitch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checkboxState = event.target.checked;
@@ -49,23 +55,33 @@ const Home: React.FC = () => {
     handleToggleTheme(checkboxState);
   };
 
-  const onChangeCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const checkboxState = event.target.checked;
+  const onChangeCheckbox = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    id: string
+  ) => {
+    const newArray = tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, checked: event.target.checked };
+      }
 
-    setIsChecked(checkboxState);
+      return task;
+    });
+
+    setTasks(newArray);
   };
 
-  const onSubmit = (data: TaskProps) => {
+  const onSubmit = (data: TaskTypes) => {
     const dataValue = {
-      value: data.value,
-      checked: isChecked
+      id: uuid(),
+      value: data.input,
+      checked: false
     };
 
     setTasks([...tasks, dataValue]);
   };
 
   const handleDelete = (data: TaskProps) => {
-    const filter = tasks.filter(task => task.value !== data.value);
+    const filter = tasks.filter(task => task.id !== data.id);
 
     setTasks(filter);
   };
@@ -119,7 +135,7 @@ const Home: React.FC = () => {
           ) : (
             <ContainerList>
               {tasks.map(task => (
-                <ContentList>
+                <ContentList key={task.id}>
                   <div
                     style={{
                       display: 'flex',
@@ -133,10 +149,12 @@ const Home: React.FC = () => {
                       colorScheme={
                         toggleTheme.title === 'light' ? 'purple' : 'blackAlpha'
                       }
-                      checked={task.checked}
-                      onChange={onChangeCheckbox}
+                      {...register('checkbox', {
+                        onChange: event =>
+                          onChangeCheckbox(event, task.id as string)
+                      })}
                     />
-                    <ListText isChecked={isChecked}>{task.value}</ListText>
+                    <ListText isChecked={!!task.checked}>{task.value}</ListText>
                   </div>
                   <IconButton
                     aria-label="Excluir"
@@ -152,7 +170,7 @@ const Home: React.FC = () => {
 
           <Hr />
 
-          <Input placeholder="Inclua uma nova tarefa" {...register('value')} />
+          <Input placeholder="Inclua uma nova tarefa" {...register('input')} />
 
           <Button w="full" variant="solid" colorScheme="purple" type="submit">
             Salvar

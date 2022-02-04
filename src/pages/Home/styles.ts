@@ -6,18 +6,19 @@ interface TextProps {
 
 export const Container = styled.div`
   display: flex;
-  flex: 1;
   height: 100vh;
+  width: 100vw;
   flex-direction: column;
 
   align-items: center;
   padding-top: 60px;
-  padding: 60px 20px 0 20px;
+  padding: 60px 20px 20px 20px;
 
   background-color: ${({ theme }) => theme.backgroundColor};
 
   @media (max-width: 600px) {
-    padding-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 `;
 
@@ -154,7 +155,7 @@ export const ContainerList = styled.ul`
   gap: 20px;
   flex: 1;
   overflow: auto;
-  max-height: 400px;
+  max-height: 300px;
 `;
 
 export const ContentList = styled.li`

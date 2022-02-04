@@ -11,12 +11,32 @@ export default createGlobalStyle`
       }
     }) => `${font.Poppins}, sans-serif`};
     font-size: ${({ theme }) => theme.default.font.fontSize};
-  }
+
+    /* Works on Firefox */
+      scrollbar-width: thin;
+      scrollbar-color: blue orange;
+  };
+
+    /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  };
+
+  *::-webkit-scrollbar-track {
+    background: none;
+  };
+
+  *::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.default.colors.forBlack};
+    border-radius: 20px;
+  };
 
   body {
-    width: 100;
+    width: 100vw;
     height: 100vh;
-  }
+    background-color: ${({ theme }) => theme.backgroundColor} !important;
+    background: ${({ theme }) => theme.backgroundColor}!important;
+  };
 
   body,
   input,
@@ -28,7 +48,7 @@ export default createGlobalStyle`
         default: { font }
       }
     }) => `${font.Poppins}, sans-serif`};
-  }
+  };
 
 
 
@@ -45,35 +65,17 @@ export default createGlobalStyle`
                 transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
-  }
+  };
 
   ul,
   ol {
     list-style: none;
-  }
+  };
 
   a {
     text-decoration: none;
     color: inherit;
-  }
+  };
 
-/* Works on Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: blue orange;
-}
 
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 12px;
-}
-
-*::-webkit-scrollbar-track {
-  background: none;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: ${({ theme }) => theme.default.colors.forBlack};
-  border-radius: 20px;
-}
 `;
