@@ -1,16 +1,11 @@
-import {
-  BoxDimensionsContextProvider,
-  useBoxDimensions
-} from './useBoxDimensions';
+import { ToggleThemeContextProvider, useToggleTheme } from './useToggleTheme';
 
 interface CustomContextHooksProps {
   children: React.ReactNode;
 }
 
 export function CustomContextHooks({ children }: CustomContextHooksProps) {
-  return (
-    <BoxDimensionsContextProvider>{children}</BoxDimensionsContextProvider>
-  );
+  return <ToggleThemeContextProvider>{children}</ToggleThemeContextProvider>;
 }
 
-export { useBoxDimensions };
+export { useToggleTheme };

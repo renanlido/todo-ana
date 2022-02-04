@@ -55,7 +55,7 @@ const light: ThemeProps = {
   textAreaInput: {
     colors: {
       background: colors.white,
-      text: colors.lightGray
+      text: colors.dark
     },
     fontSize: taskText.fontSize,
     fontWeight: taskText.fontWeight

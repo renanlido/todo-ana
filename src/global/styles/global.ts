@@ -5,11 +5,12 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font: ${({
+    font-family: ${({
       theme: {
         default: { font }
       }
-    }) => `${font.fontWeight} ${font.fontSize} ${font.Poppins}`} sans-serif
+    }) => `${font.Poppins}, sans-serif`};
+    font-size: ${({ theme }) => theme.default.font.fontSize};
   }
 
   body {
@@ -22,12 +23,14 @@ export default createGlobalStyle`
   textarea,
   select,
   button {
-    font: ${({
+    font-family: ${({
       theme: {
         default: { font }
       }
-    }) => `${font.fontWeight} ${font.fontSize} ${font.Poppins}`} sans-serif
+    }) => `${font.Poppins}, sans-serif`};
   }
+
+
 
   button {
     cursor: pointer;
@@ -53,4 +56,24 @@ export default createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: ${({ theme }) => theme.default.colors.forBlack};
+  border-radius: 20px;
+}
 `;

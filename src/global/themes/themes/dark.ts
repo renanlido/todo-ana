@@ -19,7 +19,7 @@ const dark: ThemeProps = {
   },
   texts: {
     aplicationTitle: {
-      color: colors.primary,
+      color: colors.pureWhite,
       fontSize: aplicationTitle.fontSize,
       fontWeight: aplicationTitle.fontWeight
     },
@@ -42,7 +42,7 @@ const dark: ThemeProps = {
       fontWeight: taskText.fontWeight
     }
   },
-  divider: colors.softGray,
+  divider: 'rgba(244, 246, 250, 0.1)',
   checkbox: {
     colors: {
       border: colors.dark,

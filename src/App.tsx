@@ -1,18 +1,18 @@
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './global/styles/global';
 import { Routes } from './routes';
-import { dark, light } from './global/themes';
-// import { CustomContextHooks } from './hooks';
+
+import { useToggleTheme } from './hooks';
 
 function App() {
+  const { toggleTheme } = useToggleTheme();
+
   return (
-    <ThemeProvider theme={dark}>
-      {/* <CustomContextHooks> */}
+    <ThemeProvider theme={toggleTheme}>
       <div className="App">
         <GlobalStyles />
         <Routes />
       </div>
-      {/* </CustomContextHooks> */}
     </ThemeProvider>
   );
 }
